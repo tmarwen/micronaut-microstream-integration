@@ -1,24 +1,19 @@
-## Micronaut 2.3.3 Documentation
-
-- [User Guide](https://docs.micronaut.io/2.3.3/guide/index.html)
-- [API Reference](https://docs.micronaut.io/2.3.3/api/index.html)
-- [Configuration Reference](https://docs.micronaut.io/2.3.3/guide/configurationreference.html)
-- [Micronaut Guides](https://guides.micronaut.io/index.html)
+## Micronaut - MicroStream integration
 ---
+## Feature description
 
-## Feature mockito documentation
+This project is an intent to present an experiment of Micronaut to MicroStream integration.
 
-- [https://site.mockito.org](https://site.mockito.org)
+The feature exposes the MicroStream graph data as a GraphQL schema.
 
-## Feature graphql documentation
+All that the user has to do is to create it MicroStream graph model and annotation the root entity with
+the `@Root` annotation.
 
-- [Micronaut GraphQL documentation](https://micronaut-projects.github.io/micronaut-graphql/latest/guide/index.html)
+All the heavy lifting is automagically done through Micronaut annotation processing (part of it is at
+compile time) and the user data is accessible through the exposed */graphql* endpoint.
 
-## Feature http-client documentation
-
-- [Micronaut HTTP Client documentation](https://docs.micronaut.io/latest/guide/index.html#httpClient)
-
-## Feature assertj documentation
-
-- [https://assertj.github.io/doc/](https://assertj.github.io/doc/)
+A lot of work remains to do within this project, part of it:
+* Handle GraphQL mutations
+* Full MicroStream configuration through property sources
+* ...
 
