@@ -1,0 +1,34 @@
+plugins {
+    id("com.github.johnrengelman.shadow")
+    id("io.micronaut.application")
+}
+
+group = "com.github.tmarwen.micronaut.microstream"
+
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.github.tmarwen.micronaut.microstream.*")
+    }
+}
+
+dependencies {
+    annotationProcessor(project(":micronaut-microstream-graph"))
+    implementation(project(":micronaut-microstream-graph"))
+    compileOnly("org.graalvm.nativeimage:svm")
+}
+
+
+application {
+    mainClass.set("com.github.tmarwen.micronaut.microstream.application.Application")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+
+

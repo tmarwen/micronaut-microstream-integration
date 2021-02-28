@@ -1,0 +1,11 @@
+pluginManagement {
+    plugins {
+        id("com.github.johnrengelman.shadow") version "$shadowJarVersion"
+        id("io.micronaut.application") version "$micronautApplicationPluginVersion"
+        id("io.micronaut.library") version "$micronautLibraryPluginVersion"
+    }
+}
+
+rootProject.name="micronaut-microstream-integration"
+include ':micronaut-microstream-graph'
+include ':chat-application'

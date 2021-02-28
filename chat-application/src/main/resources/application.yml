@@ -1,0 +1,15 @@
+micronaut:
+  application:
+    name: micronautMicrostreamGraph
+
+graphql:
+  enabled: true
+  path: /microstream
+  graphiql:
+    enabled: true
+    version: 0.13.2
+    path: /graphiql
+    page-title: MicroStream GraphiQL
+  graphql-ws:
+    enabled: true
+    path: /graphql-ws

@@ -1,0 +1,6 @@
+applicationType: default
+defaultPackage: com.github.tmarwen.micronaut.microstream
+testFramework: junit
+sourceLanguage: java
+buildTool: gradle
+features: [annotation-api, app-name, assertj, graalvm, gradle, graphql, java, java-application, junit, logback, mockito, netty-server, readme, shade, yaml]

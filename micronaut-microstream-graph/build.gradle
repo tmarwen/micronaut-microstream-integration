@@ -1,0 +1,34 @@
+plugins {
+    id("io.micronaut.library")
+    id("java-library")
+}
+
+group = "com.github.tmarwen.micronaut.microstream"
+
+micronaut {
+    runtime("netty")
+    testRuntime("junit5")
+    processing {
+        incremental(true)
+        annotations("com.github.tmarwen.micronaut.microstream.*")
+    }
+}
+
+dependencies {
+    compileOnly("org.graalvm.nativeimage:svm")
+    implementation("io.micronaut:micronaut-validation")
+    implementation("io.micronaut:micronaut-runtime")
+    api("javax.annotation:javax.annotation-api")
+    api("io.micronaut.graphql:micronaut-graphql")
+    api("one.microstream:storage.embedded:$microStreamVersion")
+    testImplementation("org.assertj:assertj-core")
+    testImplementation("org.mockito:mockito-core")
+}
+
+java {
+    sourceCompatibility = JavaVersion.toVersion("11")
+    targetCompatibility = JavaVersion.toVersion("11")
+}
+
+
+
