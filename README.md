@@ -17,3 +17,75 @@ A lot of work remains to do within this project, part of it:
 * Full MicroStream configuration through property sources
 * ...
 
+## Chat (Sample application)
+The Gradle subproject `chat-application` holds a sample `main` application showcasing the feature capabilities (due to
+time shortage I could not do more than the sample showcase).
+
+Navigate to the module directory and run below command (after having built the _micronaut-microstream-graph_ module:
+```
+$ ./gradlew run
+```
+Open a web browser and navigate to `http://localhost:8080/graphiql` and play with some queries.
+
+Here down a sample GraphQL query:
+```
+query {
+  threads {
+    name,
+    members {
+      username
+    },
+    messages {
+      author {
+        username
+      },
+      content,
+      createdAt
+    }
+  }
+  users {
+    username,
+    email
+  }
+}
+```
+and here down the results:
+```
+{
+  "data": {
+    "threads": [
+      {
+        "name": "hackathon.microstream.on",
+        "members": [
+          {
+            "username": "tmarouane"
+          }
+        ],
+        "messages": [
+          {
+            "author": {
+              "username": "tmarouane"
+            },
+            "content": "MicroStream is cool!",
+            "createdAt": "2021-02-28T23:16:17.674570Z"
+          },
+          {
+            "author": {
+              "username": "tmarouane"
+            },
+            "content": "MicroStream is cool!",
+            "createdAt": "2021-02-28T23:16:17.674598Z"
+          }
+        ]
+      }
+    ],
+    "users": [
+      {
+        "username": "tmarouane",
+        "email": "marouane.trab@gmail.com"
+      }
+    ]
+  }
+}
+```
+

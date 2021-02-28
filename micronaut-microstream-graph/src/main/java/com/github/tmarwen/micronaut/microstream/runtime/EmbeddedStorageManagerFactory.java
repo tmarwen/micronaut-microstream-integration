@@ -19,6 +19,7 @@ import one.microstream.storage.types.EmbeddedStorageManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import javax.inject.Singleton;
 import java.util.Arrays;
 import java.util.Objects;
 import java.util.stream.Collectors;
@@ -43,6 +44,7 @@ public class EmbeddedStorageManagerFactory {
     private static final Logger LOGGER = LoggerFactory.getLogger(EmbeddedStorageManagerFactory.class);
 
     @Bean(preDestroy = "shutdown")
+    @Singleton
     public EmbeddedStorageManager embeddedStorageManager() {
         final Class<?> rootType = getRootType();
         if (LOGGER.isDebugEnabled()) {

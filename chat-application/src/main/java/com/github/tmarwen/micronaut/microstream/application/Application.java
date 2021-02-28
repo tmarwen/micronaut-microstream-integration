@@ -28,15 +28,16 @@ public class Application {
         ChatGraph root = (ChatGraph) storageManager.root();
         // Create a conversation thread
         Thread conversation = thread();
+        root.getThreads().add(conversation);
         // Create the first Micronaut-MicroStream user ever
         User user = user();
         conversation.getMembers().add(user);
         // Here goes the first conversation message
         Message message = message("MicroStream is cool!", user, conversation);
-        thread().getMessages().add(message);
+        conversation.getMessages().add(message);
         // And the second message
         Message anotherMessage = message("MicroStream is cool!", user, conversation);
-        thread().getMessages().add(anotherMessage);
+        conversation.getMessages().add(anotherMessage);
         // Add the user to the store
         root.getUsers().add(user);
         // Save everything
